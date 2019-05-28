@@ -4,9 +4,11 @@ import datetime as dt
 # Create your tests here.
 class ProfileTestClass(TestCase):
     def setUp(self):
-        self.profile = Profile(profile_pic = 'fuaad.png', main_user = 'photolee', bio = 'photo fo passports')
+        self.user = User(username = 'photolee')
+        self.profile = Profile(profile_pic = 'fuaad.png', main_user = self.user, bio = 'photo fo passports')
 
     def tearDown(self):
+        User.objects.all().delete()
         Profile.objects.all().delete()
 
     def test_instance(self):
@@ -31,10 +33,12 @@ class ProfileTestClass(TestCase):
 class ProjectTestClass(TestCase):
 
     def setUp(self):
-        self.profile = Profile(profile_pic = 'fuaad.png', main_user = 'photolee', bio = 'photo fo passports')
-        self.project = Project(image_path = 'fuaad.png', name = 'fuaad', main_user = 'photolee', description = 'photo fo passports', reviews = 0, usability = 0, upload_date=dt.datetime.today(), content = 0, design = 0, profile = self.profile)
+        self.user = User(username = 'photolee')
+        self.profile = Profile(profile_pic = 'fuaad.png', main_user = self.user, bio = 'photo fo passports')
+        self.project = Project(image_path = 'fuaad.png', name = 'fuaad', main_user = self.user, description = 'photo fo passports', reviews = 0, usability = 0, upload_date=dt.datetime.today(), content = 0, design = 0, profile = self.profile)
 
     def tearDown(self):
+        User.objects.all().delete()
         Profile.objects.all().delete()
         Project.objects.all().delete()
 
