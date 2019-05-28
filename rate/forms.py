@@ -4,7 +4,7 @@ from .models import *
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ['main_user', 'profile', 'upload_date', 'reviews', 'usability', 'content', 'design']
+        exclude = ['main_user', 'profile', 'upload_date', 'reviews', 'usability', 'content', 'design', 'rating']
 
 class ReviewForm(forms.ModelForm):
     class Meta:

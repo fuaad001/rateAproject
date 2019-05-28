@@ -52,7 +52,7 @@ class Project(models.Model):
     description = models.TextField(blank = True)
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     upload_date = models.DateTimeField(auto_now_add=True)
-    link = models.CharField(max_length = 30, default = '')
+    link = models.CharField(max_length = 100, default = '')
     reviews = models.CharField(max_length = 30, blank = True, default = 0)
     usability = models.CharField(max_length = 30, default = 0)
     content = models.CharField(max_length = 30, default = 0)

@@ -15,6 +15,9 @@ def index(request):
     '''
     view function to display landing page
     '''
+    current_user=request.user
+    profile=Profile.objects.filter(main_user = current_user).all()
+
     if profile:
         return redirect('home')
 
