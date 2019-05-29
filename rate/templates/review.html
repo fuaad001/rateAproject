@@ -11,7 +11,7 @@
          					<div class="profile-image">
          					 <img src="{{project.profile.profile_pic.url}}" class="imgz" style='width: 10%;'>
          				 </div>
-         					<h3 style='margin-top:-4%; margin-left:25%;;' class="text-black">{{project.main_user}}</h3>
+         					<h2  class="text-white">{{project.main_user}}</h2>
          				</div>
          			</div>
                <div class="card-body">
@@ -40,7 +40,7 @@
     <div class="col-md-5">
       <div id="card" class="card">
         <div class="card-header bg-maroon">
-          <h1 style="margin: 3%; text-align: center;color:black;">Ratings</h1>
+          <h1 style="margin: 3%; text-align: center;color:white;">Ratings</h1>
         </div>
         <div class="card-body">
           <div class="row">
@@ -94,7 +94,7 @@
       <div id="logi" class="text-center">
         <div id="card" class="card">
           <div class="card-header bg-maroon">
-            <h1 style="margin: 3%; color:black;">Reviews</h1>
+            <h1 style="margin: 3%; color:white;">Reviews</h1>
           </div>
           <div class="card-body">
                {%if reviews%}
@@ -116,9 +116,9 @@
   <!-- Modal -->
         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="margin-top: 200px">
           <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">{{user}}</h5>
+            <div class="modal-content text-center">
+              <div class="modal-header bg-nav" style='border-radius: 0%'>
+                <h1 class="modal-title text-white text-center" id="exampleModalScrollableTitle" >{{user}}</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -127,11 +127,8 @@
                 <form class="form-group" action="/review/{{project.id}}/" name="{{project.id}}"  method="post" enctype="multipart/form-data">
                   {%csrf_token%}
                   {%bootstrap_form form%}
-                 <button class="btn btns btn-info"  type="submit" name="button">Post Review</button>
+                 <button class="btn btns bg-maroon text-white"  type="submit" name="button">Post Review</button>
                 </form>
-              </div>
-              <div class="modal-footer">
-
               </div>
             </div>
           </div>

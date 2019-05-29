@@ -11,7 +11,7 @@
              <div class="profile-image">
               <img src="{{project.profile.profile_pic.url}}" class="imgz" style='width: 10%;'>
             </div>
-             <h3 style='margin-top:-4%; margin-left:25%;;' class="text-white">{{project.main_user}}</h3>
+             <h3 style='' class="text-white">{{project.main_user}}</h3>
            </div>
          </div>
           <div class="card-body">
@@ -37,16 +37,18 @@
     </div>
 
     <div class="col-md-5">
-      <div class="body text-center">
-        {% if message %}
-          <p> {{message}} </p>
-        {% endif %}
-        <h3>Ratings must be between 1 and 10</h3>
-        <form class="form-group" action="/rate/{{project.id}}/" name="{{project.id}}"  method="post" enctype="multipart/form-data">
-          {%csrf_token%}
-          {%bootstrap_form form%}
-         <button class="btn bg-maroon"  type="submit" name="button">Post Ratings</button>
-        </form>
+      <div style="background-color: rgba(255, 255, 255, 0.9); padding: 5%;">
+        <div class="body text-center">
+          {% if message %}
+            <p> {{message}} </p>
+          {% endif %}
+          <h3>Ratings must be between 1 and 10</h3>
+          <form class="form-group" action="/rate/{{project.id}}/" name="{{project.id}}"  method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {%bootstrap_form form%}
+           <button class="btn bg-maroon"  type="submit" name="button">Post Ratings</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
