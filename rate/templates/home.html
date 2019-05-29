@@ -2,8 +2,7 @@
 {%load bootstrap4%}
 {%block content%}
 
-<main>
-	<div class="container-fluid">
+<div class="container-fluid">
 		<!--Carousel Wrapper-->
   <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
       <!--Indicators-->
@@ -141,39 +140,42 @@
       <!--/.Slides-->
       <!--Controls-->
 	</div>
+</div>
+
 <div class="container-fluid con">
-	<div class="gallery" style='margin-top: 2%'>
+	<div class="row">
 		{% if projects %}
 		{% for project in projects %}
-
-		<div class="card text-center">
-			<div class="card-header bg-nav">
-				<div class="row">
-					<div class="profile-image">
-					 <img src="{{project.profile.profile_pic.url}}" class="imgz">
-				 </div>
-					<h2 class="text-white name" style=''>{{project.main_user}}</h2>
+		<div class="col-md-4 col-sm-6 col-xs-6" style='margin-top: 2%'>
+			<div class="card text-center">
+				<div class="card-header bg-nav">
+					<div class="row">
+						<div class="profile-image">
+						 <img src="{{project.profile.profile_pic.url}}" class="imgz">
+					 </div>
+						<h2 class="text-white name" style=''>{{project.main_user}}</h2>
+					</div>
 				</div>
-			</div>
-			<div class="card-body">
-				<div class="main-image">
-					<img class="img-fluid" src="{{project.image_path.url}}" width="100%">
-				</div>
+				<div class="card-body">
+					<div class="main-image">
+						<img class="img-fluid" src="{{project.image_path.url}}" width="100%">
+					</div>
 
 
-			</div>
-			<div class="card-footer text-muted">
-				<div>
-					<h5 class="card-title"> <span><strong>Name: </strong></span>{{project.name}}</h5>
-					<hr>
-					<p class="card-text"><span><strong>Description: </strong></span>{{project.description}}</p>
-					<hr>
-					<a href="{{project.link}}"> <button type="button" class="btn bg-maroon">Tour Project</button> </a>
-					<hr>
-					<p>posted {{project.upload_date|timesince}} ago</p>
 				</div>
+				<div class="card-footer text-muted">
+					<div>
+						<h5 class="card-title"> <span><strong>Name: </strong></span>{{project.name}}</h5>
+						<hr>
+						<p class="card-text"><span><strong>Description: </strong></span>{{project.description}}</p>
+						<hr>
+						<a href="{{project.link}}"> <button type="button" class="btn bg-maroon">Tour Project</button> </a>
+						<hr>
+						<p>posted {{project.upload_date|timesince}} ago</p>
+					</div>
+				</div>
+			<a href="{% url 'review' project.id %}"> <i class="fas fa-comment"></i> </a>
 			</div>
-		<a href="{% url 'review' project.id %}"> <i class="fas fa-comment"></i> </a>
 		</div>
 
 		<!-- Modal -->
@@ -207,7 +209,5 @@
 	</div>
 	{% endif %}
 </div>
-
-</main>
 
 {%endblock%}
