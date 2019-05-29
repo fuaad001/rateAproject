@@ -69,7 +69,7 @@ class Project(models.Model):
         Project.objects.filter(id = project_id).delete()
 
     def update_project(project_id, xcaption):
-        Project.objects.filter(id = project_id).update(caption = xcaption)
+        Project.objects.filter(id = project_id).update(description = xcaption)
 
     def get_project_by_id(project_id):
         project = Project.objects.get(pk = project_id)
